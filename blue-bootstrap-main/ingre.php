@@ -2,65 +2,135 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
     <title>Mi Artesano</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            &:hover,
+            &:active {
+
+                .top,
+                .bottom {
+
+                    &:before,
+                    &:after {
+                        margin-left: 200px;
+                        transform-origin: -200px 50%;
+                        transition-delay: 0s;
+                    }
+                }
+
+                .center {
+                    opacity: 1;
+                    transition-delay: 0.2s;
+                }
+            }
+        }
+
+        .top,
+        .bottom {
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 200vmax;
+                height: 200vmax;
+                top: 50%;
+                left: 50%;
+                margin-top: -100vmax;
+                transform-origin: 0 50%;
+                transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+                z-index: 10;
+                opacity: 0.65;
+                transition-delay: 0.2s;
+            }
+        }
+
+        .top {
+            &:before {
+                transform: rotate(45deg);
+                background: #e46569;
+            }
+
+            &:after {
+                transform: rotate(135deg);
+                background: #ecaf81;
+            }
+        }
+
+        .bottom {
+            &:before {
+                transform: rotate(-45deg);
+                background: #60b8d4;
+            }
+
+            &:after {
+                transform: rotate(-135deg);
+                background: #3745b5;
+            }
+        }
+
+        .center {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: -200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+            transition-delay: 0s;
+            color: #333;
+
+            input {
+                width: 100%;
+                padding: 15px;
+                margin: 5px;
+                border-radius: 1px;
+                border: 1px solid #ccc;
+                font-family: inherit;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <<<<<<< HEAD <h3 class="panel-title">Mi artesano back office</h3>
-                            =======
-                            <h3 class="panel-title">Mi Artesano</h3>
-                            >>>>>>> e648465ba1fe99fd5efc2e361d7d378ed7e1312d
-                    </div>
-                    <div class="panel-body">
-                        <form method="post" action="login.php">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="CI" name="email" type="text" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Recordar mi contraseña
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <button type='submit' class="btn btn-lg btn-success btn-block">Ingresar</button>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <div class="container" onclick="/* Your click handler here */">
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="center">
+            <h2>Por favor Ingrese</h2>
+            <input placeholder="CI" name="CI" type="text" autofocus>
+            <input type="password" placeholder="password" name="password">
         </div>
     </div>
-
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
-
 </body>
 
 </html>
