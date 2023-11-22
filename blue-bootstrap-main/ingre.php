@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
 
-    
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     <title>Mi Artesano</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    </head>
+</head>
 
 <body>
-		
+
     <div class="container">
-	  <div class="row">
+        <div class="row">
             <div class="col-md-4 col-md-offset-4">
-			  <div class="login-panel panel panel-default">
+                <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-<<<<<<< HEAD
-                        <h3 class="panel-title">Mi artesano back office</h3>
-=======
-                        <h3 class="panel-title">Mi Artesano</h3>
->>>>>>> e648465ba1fe99fd5efc2e361d7d378ed7e1312d
+                        <<<<<<< HEAD <h3 class="panel-title">Mi artesano back office</h3>
+                            =======
+                            <h3 class="panel-title">Mi Artesano</h3>
+                            >>>>>>> e648465ba1fe99fd5efc2e361d7d378ed7e1312d
                     </div>
                     <div class="panel-body">
-					<form method="post" action="login.php">
+                        <form method="post" action="login.php">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="CI" name="email" type="text" autofocus>
