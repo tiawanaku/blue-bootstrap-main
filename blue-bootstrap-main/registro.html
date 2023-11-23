@@ -190,7 +190,7 @@
 											<div class="col-sm-3">
 												<div class="form-group">
 													<label>Distrito de su Domicilio</label>
-													<input type="text" class="form-control" placeholder="Distrito 1">
+													<input name='distrito_productivo'type="text" class="form-control" placeholder="Distrito 1">
 												</div>
 											</div>
 											<div class="col-sm-5 col-sm-offset-1">
@@ -634,91 +634,87 @@
 	});
 </script>
 <script>
-	document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('myForm');
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('myForm');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Evitar que el formulario se envíe normalmente
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Evitar que el formulario se envíe normalmente
 
-        // Obtener los valores de los campos del formulario
-        const nombre = form.querySelector('input[name="nombre"]').value;
-        const apellido_paterno = form.querySelector('input[name="apellido_paterno"]').value;
-        const fecha_nacimiento = form.querySelector('input[name="fecha_nacimiento"]').value;
-        const genero = form.querySelector('select[name="genero"]').value;
-        const direccion = form.querySelector('input[name="direccion"]').value;
-        const distrito = form.querySelector('input[name="distrito"]').value;
-        const ci = form.querySelector('input[name="ci"]').value;
-        const ci_ext = form.querySelector('select[name="ci_ext"]').value;
-        const numero_celular = form.querySelector('input[name="numero_celular"]').value;
-        
-        // Valor "direccion_productiva" agregado en duro
-        const direccion_productiva = "Calle Pascoe Nro2671 Zona 16 de Julio";
+            // Obtener los valores de los campos del formulario
+            const nombre = form.querySelector('input[name="nombre"]').value;
+            const apellido_paterno = form.querySelector('input[name="apellido_paterno"]').value;
+            const apellido_materno = "Morales"; // Valor duro
+            const fecha_nacimiento = form.querySelector('input[name="fecha_nacimiento"]').value;
+            const genero = form.querySelector('select[name="genero"]').value;
+            const direccion = form.querySelector('input[name="direccion"]').value;
+            const distrito = form.querySelector('input[name="distrito_productivo"]').value;
+            const ci = form.querySelector('input[name="ci"]').value;
+            const ci_ext = form.querySelector('select[name="ci_ext"]').value;
+            const numero_celular = form.querySelector('input[name="numero_celular"]').value;
+            const direccion_productiva = "Calle Pascoe Nro2671 Zona 16 de Julio"; // Valor duro
+            const rubro = form.querySelector('select[name="rubro"]').value;
+            const asociacion = form.querySelector('select[name="asociacion"]').value;
+            const producto_principal = form.querySelector('input[name="producto_principal"]').value;
+            const producto_secundario = form.querySelector('input[name="producto_secundario"]').value;
+            const licencia_funcionamiento = form.querySelector('select[name="licencia_funcionamiento"]').value;
+            const impuesto_venta = form.querySelector('input[name="impuesto_venta"]').checked;
+            const impuesto_productiva = form.querySelector('input[name="impuesto_productiva"]').checked;
+            const impuesto_comercio = form.querySelector('input[name="impuesto_comercio"]').checked;
+            const impuesto_feria = form.querySelector('input[name="impuesto_feria"]').checked;
+            const impuesto_ninguno = form.querySelector('input[name="impuesto_ninguno"]').checked;
 
-        const rubro = form.querySelector('select[name="rubro"]').value;
-        const asociacion = form.querySelector('select[name="asociacion"]').value;
-        const producto_principal = form.querySelector('input[name="producto_principal"]').value;
-        const producto_secundario = form.querySelector('input[name="producto_secundario"]').value;
-        const licencia_funcionamiento = form.querySelector('select[name="licencia_funcionamiento"]').value;
-        const impuesto_venta = form.querySelector('input[name="impuesto_venta"]').checked;
-        const impuesto_productiva = form.querySelector('input[name="impuesto_productiva"]').checked;
-        const impuesto_comercio = form.querySelector('input[name="impuesto_comercio"]').checked;
-        const impuesto_feria = form.querySelector('input[name="impuesto_feria"]').checked;
-        const impuesto_ninguno = form.querySelector('input[name="impuesto_ninguno"]').checked;
+            // Crear un objeto JSON con los valores
+            const data = {
+                nombre,
+                apellido_paterno,
+                apellido_materno, // Agregado
+                fecha_nacimiento,
+                genero,
+                direccion,
+                distrito_productivo: distrito,
+                ci,
+                ci_ext,
+                numero_celular,
+                direccion_productiva,
+                rubro,
+                asociacion,
+                producto_principal,
+                producto_secundario,
+                licencia_funcionamiento,
+                impuesto_venta,
+                impuesto_productiva,
+                impuesto_comercio,
+                impuesto_feria,
+                impuesto_ninguno,
+            };
 
-        // Crear un objeto JSON con los valores
-        const data = {
-            nombre,
-            apellido_paterno,
-            fecha_nacimiento,
-            genero,
-            direccion,
-            distrito,
-            ci,
-            ci_ext,
-            numero_celular,
-            
-            // Valor "direccion_productiva" agregado en duro
-            direccion_productiva,
+            // Enviar el objeto JSON al servidor usando fetch
+            fetch('http://142.93.63.226:8000/registro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (response.ok) {
+                    // La solicitud fue exitosa
+                    console.log('Datos enviados exitosamente');
+                    // Puedes hacer algo después de enviar los datos, como redirigir a una página de confirmación.
+                } else {
+                    // Hubo un error en la solicitud
+                    console.error('Error al enviar los datos');
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+            });
 
-            rubro,
-            asociacion,
-            producto_principal,
-            producto_secundario,
-            licencia_funcionamiento,
-            impuesto_venta,
-            impuesto_productiva,
-            impuesto_comercio,
-            impuesto_feria,
-            impuesto_ninguno,
-        };
-
-        // Enviar el objeto JSON al servidor usando fetch
-        fetch('http://142.93.63.226:8000/registro', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => {
-            if (response.ok) {
-                // La solicitud fue exitosa
-                console.log('Datos enviados exitosamente');
-                // Puedes hacer algo después de enviar los datos, como redirigir a una página de confirmación.
-            } else {
-                // Hubo un error en la solicitud
-                console.error('Error al enviar los datos');
-            }
-        })
-        .catch(error => {
-            console.error('Error en la solicitud:', error);
+            // Reiniciar el formulario si es necesario
+            form.reset();
         });
-
-        // Reiniciar el formulario si es necesario
-        form.reset();
     });
-});
-
 </script>
+
 
 </html>
